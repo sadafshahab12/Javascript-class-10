@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #container {
+        width: 300px;
+        height: 100px;
+        background-color: #f3f3f3;
+        position: relative;
+        border: 1px solid #ccc;
+      }
+
+      #loader {
+        width: 30px;
+        height: 30px;
+        background-color: #3498db;
+        border-radius: 50%;
+        position: absolute;
+        top: 35px;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Loading Animation</h2>
+    <div id="container">
+      <div id="loader"></div>
+    </div>
+
+    <script>
+      function moveLoader() {
+        const loader = document.getElementById("loader");
+        let pos = 0;
+        const id = setInterval(frame, 10); // repeat every 10ms
+
+        function frame() {
+          if (pos >= 270) {
+            clearInterval(id); // stop when it reaches the end
+          } else {
+            pos++;
+            loader.style.left = pos + "px"; // move loader to the right
+          }
+        }
+      }
+
+      window.onload = moveLoader; // run when page loads
+    </script>
+  </body>
+</html>

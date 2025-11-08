@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p class="apple">Red apple 1</p>
+    <p class="apple">Red apple 2</p>
+    <p class="apple">Red apple 3</p>
+    <p class="apple">Red apple 4</p>
+    <p class="apple">Red apple 5</p>
+    <p class="apple">Red apple 6</p>
+
+    <div class="fruits">
+      <ul class="fruit-list">
+        <li>apple</li>
+        <li>mango</li>
+        <li>orange</li>
+      </ul>
+    </div>
+
+    <script>
+      const apple = document.querySelector(".apple");
+      console.log(apple);
+      const apples = document.querySelectorAll(".apple");
+      console.log(apples); // Node List [ ] look like array but it is not actually an array // it is static it doesnot change on changing the dom
+      // html collection
+
+      // .forEach -> used on array, only perform action , it does not return value
+      let guestList = ["sadaf", "resham", "sumaira", "alina"];
+      guestList.forEach((guest) => {
+        console.log(`${guest} is invited`); // perform action  just like  write greeting or invite
+      });
+      guestList.forEach((guest) => {
+        console.log(`Good Morning, ${guest}`);
+      });
+
+      let titledName = guestList.map((name) => {
+        return `Ms. ${name}`;
+      });
+
+      console.log(titledName);
+      console.log(guestList);
+
+      let getApple = document.getElementsByClassName("apple");
+      console.log(getApple);
+
+      //for converting htmlcollection or nodelist we use Array.from
+      let makingArr = Array.from(getApple);
+      console.log(makingArr);
+      makingArr.forEach((apple, index) => {
+        console.log(`${index + 1} - the ${apple.textContent} is red`);
+      });
+
+      let fruitList = document.querySelectorAll(".fruit-list li"); // htmlCollection
+      let fruitArray = Array.from(fruitList); // array
+      fruitArray.forEach((fruit) => {
+        console.log(`This fruit ${fruit.textContent} is very sweet.`);
+      });
+
+      const departmentName = "science department";
+      let newArr = Array.from(departmentName);
+      console.log(newArr);
+
+      let myStudent = "sumaira";
+      let titleCase =
+        myStudent.charAt(0).toUpperCase() + myStudent.slice(1).toLowerCase();
+      console.log(titleCase);
+      let whichChar = myStudent.charAt(0);
+      console.log(whichChar);
+      // name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+      //             //S                                umaira
+    </script>
+  </body>
+</html>

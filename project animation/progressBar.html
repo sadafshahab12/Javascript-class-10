@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #progressContainer {
+      width: 100%;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      height: 30px;
+      position: relative;
+    }
+
+    #progressBar {
+      width: 0;
+      height: 100%;
+      background-color: #4caf50;
+      text-align: center;
+      color: white;
+      line-height: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Progress Bar Animation</h2>
+<div id="progressContainer">
+  <div id="progressBar">0%</div>
+</div>
+
+<script>
+  let width = 0;
+  const bar = document.getElementById("progressBar");
+
+  const loading = setInterval(() => {
+    if (width >= 100) {
+      clearInterval(loading);
+    } else {
+      width++;
+      bar.style.width = width + "%";
+      bar.innerHTML = width + "%";
+    }
+  }, 50); // every 50ms
+</script>
+
+</body>
+</html>
